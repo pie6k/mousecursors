@@ -4,7 +4,7 @@ Visual reference of every CSS cursor property value at [mousecursors.dev](https:
 
 ![demo](demo.png)
 
-Created at [Screen Studio](https://screen.studio) to test whether cursor size and rounded corner settings are always pixel-perfect.
+Created at [Screen Studio](https://screen.studio) to make sure our screen recorder properly detects every system cursor type.
 
 ## Features
 
