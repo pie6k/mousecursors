@@ -75,15 +75,14 @@ const Grid = styled.div`
   max-width: 1080px;
 `;
 
-const Tile = styled.div<{ $cursor: string }>`
+const Tile = styled.div`
   background: #fff;
-  border-radius: 14px;
+  border-radius: 48px;
   corner-shape: squircle;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: ${(p) => p.$cursor};
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
@@ -139,7 +138,7 @@ export default function Page() {
       <Wrapper>
         <Grid>
           {cursors.map((cursor) => (
-            <Tile key={cursor} $cursor={cursor} onClick={() => handleClick(cursor)}>
+            <Tile key={cursor} style={{ cursor }} onClick={() => handleClick(cursor)}>
               <CursorName>{copied === cursor ? "Copied" : cursor}</CursorName>
             </Tile>
           ))}
