@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 const cursors = [
@@ -124,14 +125,22 @@ const Footer = styled.a`
 `;
 
 export default function Page() {
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const handleClick = useCallback((cursor: string) => {
+    navigator.clipboard.writeText(`cursor: ${cursor};`);
+    setCopied(cursor);
+    setTimeout(() => setCopied((c) => (c === cursor ? null : c)), 1000);
+  }, []);
+
   return (
     <>
       <GlobalStyle />
       <Wrapper>
         <Grid>
           {cursors.map((cursor) => (
-            <Tile key={cursor} $cursor={cursor}>
-              <CursorName>{cursor}</CursorName>
+            <Tile key={cursor} $cursor={cursor} onClick={() => handleClick(cursor)}>
+              <CursorName>{copied === cursor ? "Copied" : cursor}</CursorName>
             </Tile>
           ))}
         </Grid>
