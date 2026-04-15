@@ -110,7 +110,7 @@ const Footer = styled.a`
   position: fixed;
   bottom: 10px;
   right: 14px;
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
